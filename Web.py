@@ -18,7 +18,17 @@ st.markdown(
     
     /* Typography */
     h1 { font-family: 'Arial', sans-serif; font-weight: 800; }
-    h3 { font-family: 'Arial', sans-serif; font-weight: 600; color: #888; font-size: 1rem; text-transform: uppercase; margin-top: 2rem; margin-bottom: 0.5rem; letter-spacing: 1px;}
+    h3 { 
+        font-family: 'Arial', sans-serif; 
+        font-weight: 600; 
+        color: var(--text-color); /* CHANGED: Adapts to theme */
+        font-size: 1rem; 
+        text-transform: uppercase; 
+        margin-top: 2rem; 
+        margin-bottom: 0.5rem; 
+        letter-spacing: 1px;
+        opacity: 0.7;
+    }
     
     /* SCHNEIDER GREEN: #3dcd58 */
     
@@ -27,20 +37,21 @@ st.markdown(
         background-color: #3dcd58;
     }
 
-    /* Expander Styling - Make them look like list items */
+    /* Expander Styling */
     .streamlit-expanderHeader {
         background-color: transparent;
         border-radius: 5px;
         font-weight: 500;
         font-size: 1rem;
         border: 0px;
+        color: var(--text-color); /* CHANGED: Adapts to theme */
     }
     .streamlit-expanderHeader:hover {
-        background-color: rgba(61, 205, 88, 0.1); /* Slight green tint on hover */
+        background-color: rgba(61, 205, 88, 0.1);
         color: #3dcd58;
     }
     .streamlit-expanderContent {
-        background-color: rgba(255,255,255,0.02);
+        background-color: var(--secondary-background-color); /* CHANGED: Adapts to theme */
         border-radius: 0 0 5px 5px;
         border-left: 3px solid #3dcd58;
         margin-bottom: 10px;
@@ -48,9 +59,10 @@ st.markdown(
     
     /* Input Fields styling */
     .stTextInput input, .stTextArea textarea {
-        background-color: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.1);
-        color: #fff;
+        background-color: transparent; /* CHANGED */
+        border: 1px solid var(--text-color); /* CHANGED */
+        color: var(--text-color) !important; /* CHANGED: Forces readable text */
+        opacity: 0.8;
     }
     .stTextInput input:focus, .stTextArea textarea:focus {
         border-color: #3dcd58;
@@ -65,7 +77,7 @@ st.markdown(
     /* Primary Buttons (Schneider Green) */
     button[kind="primary"] {
         background-color: #3dcd58;
-        color: #000; /* Black text on green for contrast */
+        color: #000; 
         border: none;
         transition: all 0.2s;
         font-weight: 600;
@@ -78,16 +90,15 @@ st.markdown(
     
     /* Metrics */
     div[data-testid="metric-container"] {
-        background-color: rgba(255,255,255,0.03);
+        background-color: var(--secondary-background-color); /* CHANGED */
         padding: 15px;
         border-radius: 8px;
-        border: 1px solid rgba(255,255,255,0.05);
+        border: 1px solid rgba(128, 128, 128, 0.2);
     }
     </style>
     """,
     unsafe_allow_html=True,
 )
-
 # ---------- Data & Logic ----------
 DEFAULT_LIST = [
     ("Product Information", False),
